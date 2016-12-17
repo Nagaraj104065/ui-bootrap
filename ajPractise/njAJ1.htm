@@ -1,0 +1,109 @@
+<!DOCTYEPE html>
+<html>
+
+<head>
+    <title>nj::ANGULAR JS TUTORIAL</title>
+    <script src="nj.AJsource.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div data-ng-app="nj1app" id="1" data-ng-init="b='sathya';array=[123,342,334,456,565]" data-ng-controller="sathya">
+        {{theTime}} == {{a}}
+        <input type="text" data-ng-model="c"></input>
+        <input type="text" data-ng-value="a"></input>
+        <p data-ng-bind="a"></p>
+        {{c}}
+        <!-- <p data-ng-bind="function()"></p> -->
+        <strong>{{"sathya"+"nagara"}}</strong>
+        <ul>
+            <li data-ng-repeat="i in array" data-ng-bind="i" style="color:{{i}}"></li>
+        </ul>
+        <select>
+            <option data-ng-repeat="j in array2 | filter : 'r' | orderBy:1" data-ng-bind="j" style="color:{{j}}"></option>
+        </select>
+        <select data-ng-model="for_option" data-ng-options="x for x in array2"></select>
+        <label>my name is</label>
+        <table>
+            <thead data-ng-repeat="key in json">
+                <tr>
+                    <th>{{key.name | uppercase}}</th>
+                    <th>EDucation</th>
+                </tr>
+                <tr>
+                    <td data-ng-repeat="e in key.edu track by $index">{{e}}</td>
+                </tr>
+                </tr>
+        </table>
+        <table>
+            <thead>Testing</thead>
+            <tbody>
+                <tr ng-repeat="p in contacts">
+                    <th width="100px">{{p.contact}}</th>
+                    <td ng-repeat="c1 in p.mlist track by $index">
+                        <input type="checkbox" ng-check='{{c1}}' />{{c1}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div data-ng-click="add1()">clickme</div>
+        <h1>{{count1}}</h1>
+        <input type="checkbox" data-ng-model="value">
+        <p ng-show="true">I am visible.</p>
+        {{value}}
+        <p ng-show="value">I am not visible.</p>
+
+        <div ng-bind-html="golang"></div>{{golang}}
+                <div ng-switch="name">
+                    <div ng-switch-when="sathya">
+                        <h1>working...!</h1>
+                    </div>
+                    <div ng-switch-default>sathye default</div>
+                </div>
+    </div>
+
+    <div ng-app="myShoppingList" >
+      <div ng-controller="myCtrl" id="2">
+        <ul>
+            <li ng-repeat="x in products track by $index">{{x}}
+                <button ng-click="remove($index)">X {{ $index}}</button>
+            </li>
+        </ul>
+        <input ng-model="addMe">
+        <button ng-click="addItem()">Add</button>
+        <form ng-submit="alert()">
+            <input type="text" ng-model="text">
+            <button type="submit">submit</button>{{text}}
+        </form>
+        <select ng-model="product">
+            <option value="Cheese">sathya</option>
+            <option value="Cheese1">sathya1</option>
+            <option value="Cheese2">sathya2</option>
+        </select>
+
+        <div ng-switch="product">
+            <div ng-switch-when="Cheese">
+                <h1>working...!</h1>
+            </div>
+            <div ng-switch-default>sathye default</div>
+        </div>
+        <pre ng-non-bindable=""><details><summary><strong>{{2+2}}</strong></summary><p>this code will not compile by the angular js</p></details></pre>
+          <h3>ACCESSing child controller Properties{{testingData}}</h3>
+        <div ng-controller="econtroller">
+        nested:------------- {{text}}---------------{{testingData}}
+        </div>
+    </div>
+     <div ng-controller="scontroller">
+      {{199+1999}}
+     </div>
+     <div ng-controller="tcontroller">
+      {{199+1999}}
+     </div>
+     <div ng-controller="fcontroller">
+      {{199+1999}}
+     </div>
+    <p>Write in the input field to add items.</p>
+  </div>
+</body>
+<script type="text/javascript" src="njCont.js"></script>
+
+</html>
