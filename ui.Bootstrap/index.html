@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ui.bootstrap.practice">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- <link rel="icon" href="./assets/favicon.ico" /> -->
+    <title>Angular directives for Bootstrap</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-touch.min.js"></script>
+    <script src="./js/ui-bootstrap-tpls-2.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-controller="ui.boot" class="bg-success">
+  <div class="collapse" uib-collapse="!isOpen">
+       <div class="col-sm-6" style="text-align: right">sathya</div>
+  </div>
+  <button ng-click="isOpen=!isOpen">click to collapse</button>
+  <script>
+ angular.module('ui.bootstrap.practice', ['ngAnimate', 'ui.bootstrap']).controller('ui.boot',function($scope){
+   $scope.data="sathya";
+   $scope.isOpen='false';
+ });
+  </script>
+</body>
+</html>
