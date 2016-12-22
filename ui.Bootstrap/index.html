@@ -13,14 +13,42 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body ng-controller="ui.boot" class="bg-success">
-  <div class="collapse" uib-collapse="!isOpen">
-       <div class="col-sm-6" style="text-align: right">sathya</div>
+  <div class="row">
+  <div class="collapse" uib-collapse="isOpen">
+       <div class="col-sm-6" style="text-align: right">sathya{{data}}</div>
   </div>
+</div>
   <button ng-click="isOpen=!isOpen">click to collapse</button>
+  <div class="container">
+    <button type="checkbox" ng-click="isExpand=!isExpand">Wanna Expand the accordion Group</button>
+    <div class="checkbox">
+       <label>
+         <input type="checkbox" ng-model="oneAtATime">
+         Open only one at a time
+       </label>
+     </div>
+
+  <uib-accordion close-others="oneAtATime">
+      <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+    This content is straight in the template.
+  </div>
+  <div uib-accordion-group class="panel-success" heading="my creation Expensive but that is openSource" is-diabaled="false" is-open="true">
+    This content is straight in the template.   This content is straight in the template.  This content is straight in the template.
+  </div>
+  <div uib-accordion-group class="panel-success" heading="my creation Expensive but that is openSource" is-diabaled="status.isFirstDisabled" is-open="status.isFirstOpen">
+    This content is straight in the template.   This content is straight in the template.  This content is straight in the template.
+  </div>
+</uib-accordion>
+</div>
   <script>
- angular.module('ui.bootstrap.practice', ['ngAnimate', 'ui.bootstrap']).controller('ui.boot',function($scope){
+ var app=angular.module('ui.bootstrap.practice', ['ngAnimate', 'ui.bootstrap']);
+ app.controller('ui.boot',function($scope){
    $scope.data="sathya";
-   $scope.isOpen='false';
+   $scope.status = {
+  isCustomHeaderOpen: false,
+  isFirstOpen: true,
+  isFirstDisabled: false
+};
  });
   </script>
 </body>
