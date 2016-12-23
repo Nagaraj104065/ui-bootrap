@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ui.bootstrap.practice">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- <link rel="icon" href="./assets/favicon.ico" /> -->
+    <title>Angular directives for Bootstrap</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-touch.min.js"></script>
+    <script src="./js/ui-bootstrap-tpls-2.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-controller="ui.boot" class="bg-success">
+  <nav class="navbar navbar-dark navbar-inverse" role="navigation">
+    <div class="jumbotron-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle btn btn-danger" ng-click="isCollapsed=!isCollapsed" >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand">Nagaraj</div>
+      </div>
+      <div class="collapse navbar-collapse" uib-collapse="!isCollapsed" >
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="collapse" uib-collapse="isOpen">
+       <div class="col-sm-6" style="text-align: right">sathya{{data}}</div>
+  </div>
+    <button ng-click="isOpen=!isOpen">click to collapse</button>
+  <script>
+  var app=angular.module('ui.bootstrap.practice', ['ngAnimate', 'ui.bootstrap']);
+  app.controller('ui.boot',function($scope){
+   $scope.alerts=[{msg:"success",type:"success"},{msg:"warning",type:"warning"}];
+   $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+  });
+  </script>
+  </body>
+  </html>

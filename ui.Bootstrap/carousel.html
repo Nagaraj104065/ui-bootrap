@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ui.bootstrap.practice">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- <link rel="icon" href="./assets/favicon.ico" /> -->
+    <title>Angular directives for Bootstrap</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-touch.min.js"></script>
+    <script src="./js/ui-bootstrap-tpls-2.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-controller="ui.boot" class="bg-success">
+    <div style="height: 305px">
+  <div uib-carousel interval="4000" active="0" no-transition="false" no-wrap="false">
+
+    <div uib-slide ng-repeat="img in source track by img.id" index="img.id" style="margin:auto;align:center">
+<center>
+      <img src="{{img.src}}" alt="vale{{img.id}}" class="img-responsive" />
+      <div class="carousel-caption" >
+         <h4>Slide</h4>
+         <p>{{img.src}}</p>
+       </div>
+     </center>
+
+
+     </div>
+   </div>
+   </div>
+
+  <script>
+  var app=angular.module('ui.bootstrap.practice', ['ngAnimate', 'ui.bootstrap']);
+  app.controller('ui.boot',function($scope){
+    $scope.source=[{src:"./images/sathya.jpg",id:0},
+    {src:"./images/sathya.jpg",id:1},
+    {src:"./images/sathya.jpg",id:2}
+    ];
+  });
+  </script>
+  </body>
+  </html>

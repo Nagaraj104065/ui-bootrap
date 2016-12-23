@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ui.bootstrap.practice">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- <link rel="icon" href="./assets/favicon.ico" /> -->
+    <title>Angular directives for Bootstrap</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-touch.min.js"></script>
+    <script src="./js/ui-bootstrap-tpls-2.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-controller="ui.boot" class="bg-success">
+  {{checkModel}}
+  <div class="btn-group">
+    <label class="btn btn-primary" ng-model="checkModel.left" uib-btn-checkbox>Left</label>
+<label class="btn btn-primary" ng-model="checkModel.middle" uib-btn-checkbox>Middle</label>
+<label class="btn btn-primary" ng-model="checkModel.right" uib-btn-checkbox>Right</label>
+</div>
+<h4>Radio &amp; Uncheckable Radio</h4>
+<pre>{{radioModel || 'null'}}</pre>
+<div class="btn-group">
+    <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Left'">Left</label>
+    <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Middle'">Middle</label>
+    <input type="checkbox" class="btn btn-primary" ng-model="radioModel" uib-btn-checkbox-false="false">
+</div>
+<div class="btn-group">
+    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uncheckable>Left</label>
+    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle</label>
+    <input type="radio" class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uib-uncheckable="uncheckable" value="raido">
+</div>
+<div>
+    <button class="btn btn-default" ng-click="uncheckable = !uncheckable">
+        Toggle uncheckable
+    </button>
+</div>
+<script>
+var app=angular.module('ui.bootstrap.practice', ['ngAnimate', 'ui.bootstrap']);
+app.controller('ui.boot',function($scope){
+ $scope.alerts=[{msg:"success",type:"success"},{msg:"warning",type:"warning"}];
+ $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
+});
+</script>
+</body>
+</html>
